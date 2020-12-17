@@ -4,46 +4,10 @@
 #include<vector>
 #include<string>
 #include "MemMan.h"	
+#include "structs.h"
 
 MemMan MemClass;
 
-struct values
-{
-	DWORD localPlayer;
-	DWORD process;
-	DWORD gameModule;
-	BYTE flag;
-	DWORD currentPlayer;
-}val;
-
-struct localPlayer
-{
-	float x;
-	float y;
-	int team;
-}localPlayer;
-
-struct gameOffsets
-{
-	DWORD dwLocalPlayer = 0xD8722C;
-	DWORD dwForceJump = 0x5248A34;
-	DWORD m_fFlags = 0x104;
-	DWORD m_vecOrigin = 0x138;
-	DWORD dwEntityList = 0x4D9EAD4;
-	DWORD m_bDormant = 0xED;
-	DWORD m_iTeamNum = 0xF4;
-	DWORD m_iHealth = 0x100;;
-
-}offsets;
-
-struct player
-{
-	float x;
-	float y;
-	int isDormant;
-	int team;
-	float health;
-};
 
 void makeWindowOnTop(sf::RenderWindow& window)
 {
@@ -56,13 +20,17 @@ player add(float x, float y, float health, int team, std::string map)
 	player tmp;
 	if (map == "mirage.png")
 	{
-		tmp.x = 215 + x / 15;
-		tmp.y = 110 - y / 15;
+		tmp.x = 212 + x / 13.5;
+		tmp.y = 96 - y / 12.50;
+		std::cout << "x = " << tmp.x << std::endl;
+		std::cout << "y = " << tmp.y << std::endl;
 	}
 	else if (map == "dust.png")
 	{
-		tmp.x = 185 + x / 12;
-		tmp.y = 250 - y / 12;
+		tmp.x = 180 + x / 13;
+		tmp.y = 240 - y / 13;
+		std::cout << "x = " << tmp.x << std::endl;
+		std::cout << "y = " << tmp.y << std::endl;
 	}
 	tmp.health = health;
 	tmp.team = team;
