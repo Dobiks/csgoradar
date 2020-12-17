@@ -116,14 +116,8 @@ int main()
 				tmp.health = MemClass.readMem<DWORD>(val.currentPlayer + offsets.m_iHealth);
 				tmp.team = MemClass.readMem<DWORD>(val.currentPlayer + offsets.m_iTeamNum);
 				players.push_back(add(tmp.x, tmp.y, tmp.health, tmp.team, map));
-
-
-
 			}
-
 		}
-
-
 
 
 		sf::Event e;
@@ -145,7 +139,7 @@ int main()
 				shape.setFillColor(sf::Color(0, 0, 250));
 				window.draw(shape);
 			}
-			else if(el.team != localPlayer.team)
+			else if (el.team != localPlayer.team)
 			{
 				shape.setFillColor(sf::Color(250, 0, 0));
 				window.draw(shape);
@@ -153,5 +147,5 @@ int main()
 		}
 		window.display();
 	}
-		return 0;
+	return 0;
 }
